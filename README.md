@@ -1,5 +1,7 @@
 **DOCKER Desarrollo de Aplicaciones II**
 
+----
+
 **MySQL**
 
 ----
@@ -33,7 +35,7 @@ En caso de no tener el schema, correr el script "scriptBD.sql" conectado a la ba
 
 * **Ejecución**
 
-  ``` ./start_mongo.sh "$PWD"/database ```
+  ``` ./start_mongo.sh ```
 
 * **Puerto:**
 
