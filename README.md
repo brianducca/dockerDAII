@@ -27,6 +27,18 @@ Una vez que lo tenemos levantado, nos creará dos carpetas, si dejamos la config
 
 La primera vez que lo levantemos, tendremos que volcar toda la estructura de datos en las respectivas bases, para eso se dejaron los archivos en las respectivas carpetas de las bases (carpeta mongodb y mysql).
 
+#### **Import mongo**
+Para la importación de mongo, tendremos que pararnos sobre el archivo import.json y correr el siguiente comando para copiar nuestro archivo al contenedor de mongo para que pueda ser visible y así pueda importarlo:
+
+* ```docker cp import.json containerdaii_mongo_1:/tmp/import.json ```
+
+Donde containerdaii_mongo_1 es el nombre del container que le asigno el docker-compose. Realizado esto, tenemos que entrar de manera interactiva en nuestro contenedor de mongo realizando:
+
+* ```docker exec -it containerdaii_mongo_1 bash ```
+
+Una vez dentro, correremos el comando para importar todo lo contenido en import.json a nuestra base de mongo.
+
+* ``` mongoimport --db DAII --collection Usuarios --file /tmp/import.json --jsonArray ```
 ----
 ## **Alternativa: levantar cada base por separado con docker run**
 
