@@ -1,0 +1,46 @@
+# Version of docker-compose (last 3.7)
+version: "2.0"
+# Create the app services
+services:
+  # Create the service for DB (puerto 3307)
+  mysql-server:
+    image: "mysql:5.7"
+    restart: always
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./DBMySQL:/c/Users/bducca/Documents/clasesFiuba/Docker/ContainerDAII/
+    environment:
+      MYSQL_ROOT_PASSWORD: userpass
+    networks:
+      - daii-net
+  # Create PHPMyAdmin service (localhost:8085)
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: mysql-server
+    ports:
+      - "8085:80"
+    depends_on:
+      - mysql-server
+    networks:
+      - daii-net
+  #Base de datos mongo
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./DBMongo:/c/Users/bducca/Documents/clasesFiuba/Docker/ContainerDAII/
+  #Administrador de bd mongo (puerto 8083)
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8083:8081
+# Create network called web with driver bridge
+networks:
+  daii-net:
+    driver: bridge
