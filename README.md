@@ -28,7 +28,7 @@ Una vez que lo tenemos levantado, nos creará una carpeta, que se llamará  DBMy
 La primera vez que lo levantemos, tendremos que volcar toda la estructura de datos en las respectivas bases, para eso se dejaron los archivos en las respectivas carpetas de las bases (carpetas mongodb y mysql).
 
 #### **Import mongo**
-Para la importación de mongo, tendremos que pararnos sobre el archivo import.json y correr el siguiente comando para copiar nuestro archivo al contenedor de mongo para que pueda ser visible y así pueda importarlo:
+Para la importación de mongo, tendremos que pararnos sobre el archivo import.json y correr el siguiente comando para copiar nuestro archivo al contenedor de mongo para que pueda ser visible y así pueda importarlo (Si no estamos parado sobre la carpeta mongodb/, tendremos que cambiar el path luego del docker cp para que lo tome correctamente):
 
 * ```docker cp import.json mongoDaii:/tmp/import.json ```
 
