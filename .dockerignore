@@ -1,7 +1,4 @@
-  
 .git
 .gitignore
-/DBMongo
-/DBMySQL
 README.md
-node_modules
+docker-compose.yml

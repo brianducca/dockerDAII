@@ -9,7 +9,7 @@ services:
     ports:
       - "3307:3306"
     volumes:
-      - ./DBMySQL:/c/Users/bducca/Documents/clasesFiuba/Docker/ContainerDAII/
+      - ./DBMySQL:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: userpass
     networks:
@@ -33,13 +33,17 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - ./DBMongo:/c/Users/bducca/Documents/clasesFiuba/Docker/ContainerDAII/
+      - mongodbData:/data/db
   #Administrador de bd mongo (puerto 8083)
   mongo-express:
     image: mongo-express
     restart: always
     ports:
       - 8083:8081
+#Creo volumen para mongo dado que no funciona bien con el bindeo host:container
+volumes:
+    mongodbData:
+      external: false
 # Create network called web with driver bridge
 networks:
   daii-net:
