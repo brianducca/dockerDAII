@@ -1,7 +1,7 @@
   
 .git
 .gitignore
-./DBMongo
-./DBMySQL
+/DBMongo
+/DBMySQL
 README.md
 node_modules
